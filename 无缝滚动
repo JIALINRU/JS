@@ -71,7 +71,6 @@
 		var speed = 10;
 		oImgs.innerHTML += oImgs.innerHTML;
 		oImgs.style.width = 2 * oImgs.offsetWidth + 'px';
-
 		setInterval(function(){
 			oImgs.style.left = oImgs.offsetLeft - speed + 'px';
 			if(parseInt(oImgs.style.left) <= -oImgs.offsetWidth / 2){
