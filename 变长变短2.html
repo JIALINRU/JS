@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>long to short 2</title>
+	<meta charset="UTF-8">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			height: 100px;
+			width: 100px;
+			background: #e66;
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<script>
+		var aDiv = document.getElementsByTagName('div');
+		for (var i = 0; i < aDiv.length; i++) {
+			aDiv[i].timer;//给每一个都设置一个自己的定时器
+			aDiv[i].onmouseover = function(){
+				clearInterval(this.timer);
+				var that = this;
+				that.timer = setInterval(function(){
+					if (that.offsetWidth < 300) {
+						that.style.width = that.offsetWidth + 10 +'px';
+					}else{
+						clearInterval(that.timer);
+					}
+				},30);
+			};
+			aDiv[i].onmouseout = function(){
+				clearInterval(this.timer);
+				var that = this;
+				that.timer = setInterval(function(){
+					if (that.offsetWidth > 100) {
+						that.style.width = that.offsetWidth - 10 +'px';
+					}else{
+						clearInterval(that.timer);
+					}
+				},30);
+			};
+		}
+	</script>
+</body>
+</html>
