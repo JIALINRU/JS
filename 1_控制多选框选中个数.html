@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	请选择你最喜欢的三门课程：
+	<form action="" id="course">
+		<input type="checkbox" value="1">高数
+		<input type="checkbox" value="2">操作系统
+		<input type="checkbox" value="3">C语言
+		<input type="checkbox" value="4">汇编语言
+		<input type="checkbox" value="5">数据库
+		<input type="checkbox" value="6">数据结构<br/>
+		<input type="submit">
+	</form>
+
+	<script>
+		var oCourse = document.getElementById('course');
+		var aCourseList = course.getElementsByTagName('input');
+		var count = 0, maxNum = 3;
+		for(var i=0; i<aCourseList.length;i++){
+			if(aCourseList[i].type == 'checkbox'){
+				aCourseList[i].onclick = function(){
+					this.checked ? count++ : count--;
+					count >= maxNum ? setDisabled('disabled') : setDisabled('');
+/*					if(count >= maxNum){
+						for(var j=0; j<aCourseList.length; j++){
+							if(aCourseList[j].type == 'checkbox' && !aCourseList[j].checked){
+								aCourseList[j].disabled = 'disabled';
+							}
+						}
+						setDisabled('disabled');
+						
+					}else{
+						// for(var j=0; j<aCourseList.length; j++){
+						// 	if(aCourseList[j].type == 'checkbox' && !aCourseList[j].checked){
+						// 		aCourseList[j].disabled = '';
+						// 	}
+						// }
+						setDisabled('');
+
+					}
+*/
+					
+				};
+			}
+		}
+
+		function setDisabled(disabled){
+			for(var j=0; j<aCourseList.length; j++){
+				if(aCourseList[j].type == 'checkbox' && !aCourseList[j].checked){
+					aCourseList[j].disabled = disabled;
+				}
+			}
+		}
+
+
+	</script>
+</body>
+</html>
